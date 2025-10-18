@@ -1,0 +1,11 @@
+{
+    "超级鹰用户名": "your_username",
+    "超级鹰密码": "your_password",
+    "软件ID": "your_software_id",
+    "验证码类型": "1902",
+    "浏览器类型": "chrome",
+    "Excel文件路径": "用户数据.xlsx",
+    "超时时间": 60,
+    "自动识别验证码": true,
+    "自动登录": true
+}

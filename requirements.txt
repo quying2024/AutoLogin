@@ -1,0 +1,16 @@
+wxPython==4.2.1
+playwright==1.40.0
+pandas==2.1.4
+openpyxl==3.1.2
+requests==2.31.0
+Pillow==10.1.0
+
+# 如果 wxPython 4.2.1 安装失败，可以尝试以下替代方案：
+# 方案1: 使用预编译的 wheel 包
+# wxPython==4.2.1-cp313-cp313-win_amd64.whl
+
+# 方案2: 使用更新的版本
+# wxPython==4.2.2
+
+# 方案3: 使用 conda 安装
+# conda install -c conda-forge wxpython

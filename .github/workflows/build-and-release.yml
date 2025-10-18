@@ -1,0 +1,44 @@
+name: Build and release
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        .\venv\Scripts\activate
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Install Playwright browsers
+      run: |
+        .\venv\Scripts\activate
+        python -m playwright install chromium
+
+    - name: Build with PyInstaller
+      run: |
+        .\venv\Scripts\activate
+        pyinstaller --clean autologin.spec
+
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: autologin-windows
+        path: dist/职称申报登录助手
+
+  # optional: add release step using GitHub Releases (requires token)
